@@ -35,7 +35,7 @@ public class LevelGenerator : MonoBehaviour
         gridPosition.y = (int)layer;
 
         GridObject template = GetRandomTemplate(layer);
-        int objectsNearby = template.ObjectsNearby;
+        int objectsNearby = GetRandomObjectsNearbyCount(template);
 
         for (int i = 0; i < objectsNearby; i++)
         {
@@ -71,6 +71,14 @@ public class LevelGenerator : MonoBehaviour
         int randomIndex = Random.Range(0, variants.Count());
 
         return variants.ElementAt(randomIndex);
+    }
+
+    private int GetRandomObjectsNearbyCount(GridObject template)
+    {
+        if (template.MinObjectsNearby == template.MaxObjectsNearby)
+            return template.MinObjectsNearby;
+
+        return Random.Range(template.MinObjectsNearby, template.MaxObjectsNearby + 1);
     }
 
     private Vector2 GridToWorldPosition(Vector2Int gridPosition)

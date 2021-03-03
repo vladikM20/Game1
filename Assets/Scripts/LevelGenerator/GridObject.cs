@@ -11,16 +11,8 @@ public class GridObject : MonoBehaviour
 
     public GridLayer Layer => _layer;
     public int Chance => _chance;
-    public int ObjectsNearby
-    {
-        get
-        {
-            if (_minObjectsNearby == _maxObjectsNearby)
-                return _minObjectsNearby;
-
-            return Random.Range(_minObjectsNearby, _maxObjectsNearby + 1);
-        }
-    }
+    public int MinObjectsNearby => _minObjectsNearby;
+    public int MaxObjectsNearby => _maxObjectsNearby;
 
     private void OnValidate()
     {

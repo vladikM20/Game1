@@ -11,7 +11,6 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private LayerMask _groundLayerMask;
 
     private Rigidbody2D _rigidbody2D;
-    private bool _isGrounded;
 
     private void Awake()
     {
@@ -20,14 +19,11 @@ public class BallMovement : MonoBehaviour
 
     private void Update()
     {
-        _isGrounded = false;
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, _distanceGroundCheck, _groundLayerMask);
-            _isGrounded = hit.collider != null;
 
-            if (_isGrounded)
+            if (hit.collider != null)
             {
                 _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
                 _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
