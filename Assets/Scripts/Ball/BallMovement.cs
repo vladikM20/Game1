@@ -21,15 +21,25 @@ public class BallMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, _distanceGroundCheck, _groundLayerMask);
-
-            if (hit.collider != null)
+            if (IsGrounded())
             {
-                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
-                _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+                Jump();
             }
         }
 
         _rigidbody2D.velocity = new Vector2(_speed, _rigidbody2D.velocity.y);
+    }
+
+    private void Jump()
+    {
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+        _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+    }
+
+    private bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, _distanceGroundCheck, _groundLayerMask);
+
+        return hit.collider != null;
     }
 }

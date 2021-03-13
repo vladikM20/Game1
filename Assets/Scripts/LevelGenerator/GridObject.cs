@@ -6,13 +6,11 @@ public class GridObject : MonoBehaviour
 {
     [SerializeField] private GridLayer _layer;
     [SerializeField] private int _chance;
-    [SerializeField] private int _minObjectsNearby;
-    [SerializeField] private int _maxObjectsNearby;
+    [SerializeField] private int _lenght;
 
     public GridLayer Layer => _layer;
     public int Chance => _chance;
-    public int MinObjectsNearby => _minObjectsNearby;
-    public int MaxObjectsNearby => _maxObjectsNearby;
+    public int Lenght => _lenght;
 
     private void OnValidate()
     {

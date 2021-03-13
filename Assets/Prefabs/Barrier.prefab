@@ -122,6 +122,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layer: 1
-  _chance: 30
-  _minObjectsNearby: 1
-  _maxObjectsNearby: 3
+  _chance: 20
+  _lenght: 1

@@ -114,8 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layer: 3
   _chance: 10
-  _minObjectsNearby: 1
-  _maxObjectsNearby: 4
+  _lenght: 4
 --- !u!114 &8794951245896653145
 MonoBehaviour:
   m_ObjectHideFlags: 0

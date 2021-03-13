@@ -123,5 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layer: 0
   _chance: 100
-  _minObjectsNearby: 1
-  _maxObjectsNearby: 1
+  _lenght: 1
